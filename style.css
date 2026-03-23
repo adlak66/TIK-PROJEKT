@@ -1,6 +1,7 @@
 /* Baza */
 body {
-    font-family: 'Apple Chancery', cursive;
+    font-family: 'Apple Chancery', sans-serif;
+    font-size: 20px;
     background: #fff5f7;
     margin: 0;
     padding: 30px;
