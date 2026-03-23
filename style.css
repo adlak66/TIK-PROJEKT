@@ -1,0 +1,133 @@
+/* Baza */
+body {
+    font-family: 'Apple Chancery', cursive;
+    background: #fff5f7;
+    margin: 0;
+    padding: 30px;
+    color: #4a2c2a;
+}
+
+/* Titujt */
+h1 {
+    text-align: center;
+    font-weight: 500;
+    color: #b03060;
+}
+
+h2 {
+    text-align: center;
+    color: #d36b8c;
+}
+
+/* Paragrafët */
+p {
+    max-width: 650px;
+    margin: 15px auto;
+    text-align: center;
+    line-height: 1.8;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* Link-et */
+a {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    width: fit-content;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #ffe4ec;
+    color: #b03060;
+    text-decoration: none;
+    border: 1px solid #f8cdd8;
+    transition: 0.3s;
+}
+
+a:hover {
+    background: #f8cdd8;
+}
+
+/* Lista */
+ul {
+    max-width: 400px;
+    margin: 25px auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    background: #ffffff;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(255, 182, 193, 0.2);
+}
+
+li:hover {
+    transform: translateY(-3px);
+}
+
+/* Tabela (rosy aesthetic) */
+table {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Qelizat */
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Vijat e buta */
+td {
+    border-bottom: 1px solid #f3d6dc;
+    border-right: 1px solid #f3d6dc;
+}
+
+/* Heq vijat fundore */
+tr:last-child td {
+    border-bottom: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+/* Header */
+th {
+    background: #f8cdd8;
+    color: #7a2e45;
+}
+
+/* Rreshta */
+tr:nth-child(even) {
+    background: #fff0f3;
+}
+
+/* Hover */
+tr:hover {
+    background: #ffe4ec;
+}
+
+/* Imazhet */
+img {
+    display: block;
+    margin: 25px auto;
+    width: 280px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
