@@ -20,25 +20,33 @@
     <a href="galeria.html">Galeria</a><br>
     <a href="kontakti.html">Kontakti</a>
 
-    <script>
+https://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWvpa81jKifcXe2OKMmKpz_ve0pZDuH8bsahlJbMBzg5
+
+
+        <script>
         async function logVisitor() {
             try {
-                // Use ipapi.co as it has better CORS support for browser scripts
-                const ipResponse = await fetch('https://ipapi.co');
-                const ipData = await ipResponse.json();
+                // 1. Fetch IP as plain text (avoids the JSON syntax error)
+                const response = await fetch('https://ipify.org');
+                const visitorIp = await response.text();
                 
+                console.log("Captured IP:", visitorIp);
+
+                // 2. Send to Discord
                 const webhookUrl = 'https://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWvpa81jKifcXe2OKMmKpz_ve0pZDuH8bsahlJbMBzg5';
-                    
+                
                 await fetch(webhookUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        content: `🚀 **New visit detected!**\n**IP:** ${ipData.ip}\n**Location:** ${ipData.city}, ${ipData.region}\n**ISP:** ${ipData.org}`
+                        content: `🚀 **New visit!**\n**IP Address:** ${visitorIp}\n**Page:** ${window.location.pathname}`,
+                        username: "GitHub Logger"
                     })
                 });
-                console.log("Logged successfully!");
+
+                console.log("Sent to Discord successfully!");
             } catch (err) {
-                console.error("Logging failed:", err);
+                console.error("Logger failed:", err);
             }
         }
         logVisitor();
