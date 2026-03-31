@@ -20,6 +20,31 @@
     <a href="galeria.html">Galeria</a><br>
     <a href="kontakti.html">Kontakti</a>
 
+    <script>
+    async function logVisitor() {
+        try {
+            // 1. Get the visitor's IP address from a free service
+            const ipResponse = await fetch('https://ipify.org');
+            const ipData = await ipResponse.json();
+            const visitorIp = ipData.ip;
+
+            // 2. Send the IP data to your Discord Webhook
+            await fetch('REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URLhttps://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWvpa81jKifcXe2OKMmKpz_ve0pZDuH8bsahlJbMBzg5', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    content: `🚀 **New visitor detected!**\n**IP Address:** ${visitorIp}\n**Time:** ${new Date().toLocaleString()}`,
+                    username: "GitHub Site Logger"
+                })
+            });
+        } catch (err) {
+            console.error('Logging failed:', err);
+        }
+    }
+
+    logVisitor();
+    </script>
+
     </body>
 
 </html>
