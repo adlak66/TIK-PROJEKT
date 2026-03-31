@@ -20,17 +20,21 @@
     <a href="galeria.html">Galeria</a><br>
     <a href="kontakti.html">Kontakti</a>
 
-https://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWvpa81jKifcXe2OKMmKpz_ve0pZDuH8bsahlJbMBzg5
 
 
         <script>
         async function logVisitor() {
             try {
-                // 1. Fetch IP as plain text (avoids the JSON syntax error)
-                const response = await fetch('https://ipify.org');
-                const visitorIp = await response.text();
+                // 1. Fetch IP + Location from a CORS-friendly API
+                // This service allows requests from github.io domains
+                const response = await fetch('https://ipapi.co');
                 
-                console.log("Captured IP:", visitorIp);
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log("Visitor data captured:", data.ip);
 
                 // 2. Send to Discord
                 const webhookUrl = 'https://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWvpa81jKifcXe2OKMmKpz_ve0pZDuH8bsahlJbMBzg5';
@@ -39,16 +43,28 @@ https://discord.com/api/webhooks/1488639391323656357/3vfLmmIDTZOfwzcNd-dtcjyrxWv
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        content: `🚀 **New visit!**\n**IP Address:** ${visitorIp}\n**Page:** ${window.location.pathname}`,
-                        username: "GitHub Logger"
+                        username: "GitHub Site Tracker",
+                        embeds: [{
+                            title: "🚀 New Visitor Detected",
+                            color: 3447003,
+                            fields: [
+                                { name: "IP Address", value: data.ip || "Unknown", inline: true },
+                                { name: "Location", value: `${data.city}, ${data.region}, ${data.country_name}`, inline: true },
+                                { name: "ISP", value: data.org || "Unknown", inline: false },
+                                { name: "Device Info", value: navigator.userAgent.substring(0, 250), inline: false }
+                            ],
+                            footer: { text: `Time: ${new Date().toLocaleString()}` }
+                        }]
                     })
                 });
 
-                console.log("Sent to Discord successfully!");
+                console.log("Discord notification sent!");
             } catch (err) {
-                console.error("Logger failed:", err);
+                console.error("Logger encountered an error:", err.message);
             }
         }
+
+        // Run the logger
         logVisitor();
         </script>
 
