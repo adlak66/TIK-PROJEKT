@@ -47,6 +47,24 @@ a:hover {
     background: #f8cdd8;
 }
 
+button {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    width: fit-content;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #ffe4ec;
+    color: #b03060;
+    text-decoration: none;
+    border: 1px solid #f8cdd8;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f8cdd8;
+
 ul {
     max-width: 400px;
     margin: 25px auto;
