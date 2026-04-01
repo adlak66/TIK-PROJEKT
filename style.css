@@ -32,7 +32,6 @@ a {
     font-size: 20px;
     display: block;
     text-align: center;
-    margin: 10px auto;
     width: fit-content;
     padding: 8px 15px;
     border-radius: 20px;
@@ -51,7 +50,6 @@ button {
     font-size: 20px;
     display: block;
     text-align: center;
-    margin: 30px auto;
     width: fit-content;
     padding: 8px 15px;
     border-radius: 20px;
@@ -60,7 +58,7 @@ button {
     text-decoration: none;
     border: 1px solid #f8cdd8;
     transition: 0.3s;
-    margin-top: 20px;
+   
 }
 
 button:hover {
