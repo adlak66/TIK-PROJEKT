@@ -60,10 +60,12 @@ button {
     text-decoration: none;
     border: 1px solid #f8cdd8;
     transition: 0.3s;
+    margin-top: 20px;
 }
 
 button:hover {
     background: #f8cdd8;
+}
 
 ul {
     max-width: 400px;
