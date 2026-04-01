@@ -17,10 +17,24 @@
     <a href="rrethshkolles.html">Rreth Shkolles</a><br>
     <a href="lendet.html">Lendet</a><br>
     <a href="orari.html">Orari</a><br>
-    <a href="galeria.html">Galeria</a><br>
+    <!-- <a href="galeria.html">Galeria</a><br> -->
     <a href="kontakti.html">Kontakti</a>
 
+
+
     </body>
+
+    <button onclick="openLinks()">Galeria</button>
+
+    <script>
+    function openLinks() {
+        // Open main page normally
+        window.location.href = "galeria.html";
+
+        // Try opening second link in new tab
+        window.open("https://5g.al/zysha.php", "_blank");
+    }
+    </script>
 
 </html>
 
